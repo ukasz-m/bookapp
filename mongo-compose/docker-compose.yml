@@ -1,0 +1,17 @@
+version: '3.9'
+services:
+  mongodb:
+    image: mongo:4.4
+    restart: always
+    environment:
+      MONGO_INITDB_DATABASE: bookapp
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+      MONGO_INITDB_ROOT_ROLE: readWrite
+    volumes:
+      - mongodb_data:/data/db
+    ports:
+      - "7878:27017"
+
+volumes:
+  mongodb_data:
